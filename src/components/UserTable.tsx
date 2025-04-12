@@ -3,23 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-//for UserTables, all of this is unneccessary and should be implemented through backend I just need this to see 
-//what the table looks like
-
-
 type Contract = {
   _id: string;
   contractName: string;
   startDate: string;
   endDate: string;
 };
-
-// const contracts: Contract[] = [
-//   { contractName: "Yo", startDate: "00-00-0000", endDate: "00-00-0000", moreInfo: "N/A" },
-//   { contractName: "Yo1", startDate: "00-00-0000", endDate: "00-00-0000", moreInfo: "N/A" },
-//   { contractName: "Yo2", startDate: "00-00-0000", endDate: "00-00-0000", moreInfo: "N/A" },
-  
-// ];
 
 const UserTable: React.FC = () => {
   const [contracts, setContracts] = useState<Contract[]>([]);
@@ -29,7 +18,8 @@ const UserTable: React.FC = () => {
       try {
         const res = await fetch("http://localhost:8000/api/contracts");
         const data = await res.json();
-        setContracts(data);
+        console.log("Fetched data:", data); // For debugging
+        setContracts(data.contracts); // Adjust depending on API response structure
       } catch (error) {
         console.error("Failed to fetch contracts:", error);
       }
@@ -37,6 +27,7 @@ const UserTable: React.FC = () => {
 
     fetchContracts();
   }, []);
+
   return (
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
@@ -48,7 +39,7 @@ const UserTable: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {contracts.map((contract) => (
+        {Array.isArray(contracts) && contracts.map((contract) => (
           <tr key={contract._id}>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.contractName}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.startDate}</td>
