@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useState } from 'react';
 
 type Contract = {
   _id: string;
@@ -15,6 +16,8 @@ interface UserTableProps {
 }
 
 const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
+  if (!Array.isArray(contracts)) return <p>No contracts found.</p>;
+  const [hoveredButtonId, setHoveredButtonId] = useState<string | null>(null);
   return (
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
@@ -33,18 +36,26 @@ const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.endDate}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>
               <Link href={`/contracts/${contract._id}`}>
-                <button style={{
-                  display: "block",
-                  padding: "6px 12px",
-                  cursor: "pointer",
-                  backgroundColor: "#f89880",
-                  textAlign: "center",
-                  margin: "auto",
-                  fontSize: "1rem",
-                  width: "6rem",
-                  height: "3rem",
-                  borderRadius: "25px"
-                }}>
+                <button  
+                  onMouseEnter={() => setHoveredButtonId(contract._id)}
+                  onMouseLeave={() => setHoveredButtonId(null)}
+                  style={{
+                    display: "block",
+                    padding: "6px 12px",
+                    cursor: "pointer",
+                    backgroundColor: hoveredButtonId === contract._id ? "#ff6a4d" : "#f89880",
+                    textAlign: "center",
+                    margin: "auto",
+                    fontSize: "1rem",
+                    width: "7rem",
+                    height: "3rem",
+                    borderRadius: "25px",
+                    transition: "background-color 0.3s ease",
+                    fontFamily: "'Courier New', Courier, monospace",
+                    fontWeight: "bold",
+                    border: "none",
+                    color: "white",
+                  }}>
                   More Info
                 </button>
               </Link>

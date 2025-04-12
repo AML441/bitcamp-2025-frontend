@@ -1,28 +1,72 @@
 .body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     background-color: #ebe5dd;
     color: grey;
 }
 
+.mainContent {
+    display: flex; /* Side by side layout */
+    flex-direction: row;
+    height: 85vh;
+}
+
 .info {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3.25rem;
     width: 50%;
-    margin: 2rem 2.5rem 0rem 2.5rem;
+    margin: 2rem 2.5rem 1rem 2.5rem;
+
 }
+
+.defTitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+    margin: 2rem 0;
+  }
 
 .searchDef{
     display: flex;
     flex-direction: column;
     border-style: solid;
+    width: 100%;
+    padding: 1.45rem;
+    height: 40%;
+  
+}
+.definitions {
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-top: 1rem;
 }
 
+.definitions ul {
+    list-style-type: disc; /* Show regular bullet points */
+    padding-left: 1.5rem;  /* Adds space before bullets */
+    margin: 0 0 1rem 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.definitions li {
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/*
 .search{
     display: flex;
     flex-direction: row;
+    margin: 1rem 0rem;
     
 }
 
@@ -34,19 +78,61 @@
 
 .searchButton {
     width: 10%;
+    font-size: .5rem;
+    cursor: pointer;
+    
 }
+    */
 
 .summary {
+    display: flex;
+    flex-direction: column;
     border-style: solid;
+    height: 25vh;
+    padding: 1.45rem;
+}
+
+.summaryTitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 .summaryBox {
-    border-style: solid;
+    overflow-y: auto;
+    max-height: 30vh;
+    margin-top: 1rem;
+    flex-grow: 1; 
+
 }
+
 
 .pdf {
     width: 50%;
-    height:100vh;
+    height: 70%;
     margin: 2rem 2.5rem 0rem 2.5rem;
 
 }
+
+.backButton {
+    width: 100%;
+    background-color: #f89880;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.backButton:hover {
+    filter: brightness(1.2);
+}
+
+.linkWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }

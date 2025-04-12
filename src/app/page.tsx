@@ -9,10 +9,18 @@ import UserTable from "../components/UserTable";
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 
+type Contract = {
+  _id: string;
+  contractName: string;
+  startDate: string;
+  endDate: string;
+  createdAt: string;
+};
+
 export default function Home() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
-  const [contracts, setContracts] = useState([]);
+  const [contracts, setContracts] = useState<Contract[]>([]);
 
   // 🔐 Redirect to login if no token
   useEffect(() => {
@@ -32,10 +40,29 @@ export default function Home() {
           Authorization: `Bearer ${token}`,
         },
       });
+  
+      // Handle expired/unauthorized token
+      if (res.status === 401 || res.status === 403) {
+        console.warn("Token is invalid or expired. Logging out...");
+        Cookies.remove('token');
+        setContracts([]); // clear UI state
+        router.push('/login');
+        return;
+      }
+  
       const data = await res.json();
-      setContracts(data);
+  
+      // Safely set contracts if it's an array
+      if (Array.isArray(data)) {
+        setContracts(data);
+      } else {
+        console.error("Contracts response is not an array:", data);
+        setContracts([]);
+      }
+  
     } catch (err) {
       console.error("Failed to fetch contracts:", err);
+      setContracts([]);
     }
   };
 

@@ -22,6 +22,8 @@
   font-weight: bold;
   text-align: center;
   color: grey;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .container {
@@ -42,7 +44,9 @@
   border-radius: 25px;
   background-color:  #f89880;
   transition: background-color 0.3s ease;
-
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .uploadButton:hover {
@@ -54,7 +58,8 @@
   margin: auto;
   color: grey;
   background-color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
   font-size: 1.5rem;
 }
 
@@ -91,6 +96,8 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .inputField {
@@ -100,10 +107,18 @@
   border-radius: 6px;
   color: grey;
   background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .modalButton {
+  cursor: pointer;
   color: #f89880;
+  transition: background-color 0.3s ease;
+}
+
+.modalButton:hover {
+  filter: brightness(1.2);
 }
 
 .submitButton {
@@ -115,6 +130,8 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .submitButton:hover {

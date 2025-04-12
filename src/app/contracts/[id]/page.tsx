@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import styles from './page.module.css';
+import Link from 'next/link';
+
 
 interface Contract {
   _id: string;
@@ -65,66 +67,80 @@ export default function ContractDetailPage() {
   
     return (
       <div className={styles.body}>
-        <div className={styles.pdf}>
-          <embed
-            src={pdfUrl}
-            type="application/pdf"
-            width="100%"
-            height="600px"
-          />
+        <div className={styles.mainContent}>
+            <div className={styles.pdf}>
+            <embed
+                src={pdfUrl}
+                type="application/pdf"
+                width="100%"
+                height="600px"
+            />
+            </div>
+    
+            <div className={styles.info}>
+            <div className={styles.searchDef}>
+                <div className={styles.defTitle}>
+                <h1>Contract Details</h1>
+                <hr className="divider" />
+                </div>
+
+                {/* <div className={styles.search}>
+                <div className={styles.searchBar}>
+                    <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className={styles.searchBar}
+                    placeholder="Search terms..."
+                    />
+                </div>
+                <button className={styles.searchButton}>Search</button>
+                </div> */}
+    
+                <div className={styles.definitions}>
+                <h3>Involved Parties</h3>
+                <ul>
+                    {contract.parties.map((p, idx) => (
+                    <li key={idx}>{p}</li>
+                    ))}
+                </ul>
+                <br/>
+                <h3>Important Clauses</h3>
+                <ul>
+                    {contract.terms
+                    .filter((term) =>
+                        term.toLowerCase().includes(searchTerm.toLowerCase())
+                    )
+                    .map((term, index) => (
+                        <li key={index}>{term}</li>
+                    ))}
+                </ul>
+                <br/>
+                <h3>Consequences</h3>
+                <ul>
+                    {contract.consequences.map((c, idx) => (
+                    <li key={idx}>{c}</li>
+                    ))}
+                </ul>
+    
+                </div>
+            </div>
+    
+            <div className={styles.summary}>
+                <div className={styles.summaryTitle}>
+                    <h1>Summary</h1>
+                    <hr className="divider" />
+                </div>
+                <p className={styles.summaryBox}>{contract.summary}</p>
+            </div>
+            </div>
         </div>
-  
-        <div className={styles.info}>
-          <div className={styles.searchDef}>
-            <div className={styles.defTitle}>
-              <h1>Contract Details</h1>
-            </div>
-  
-            <div className={styles.search}>
-              <div className={styles.searchBar}>
-                <input
-                  type="text"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className={styles.searchBar}
-                  placeholder="Search terms..."
-                />
-              </div>
-              <button className={styles.searchButton}>Search</button>
-            </div>
-  
-            <div className={styles.definitions}>
-              <h3>Important Clauses</h3>
-              <ul>
-                {contract.terms
-                  .filter((term) =>
-                    term.toLowerCase().includes(searchTerm.toLowerCase())
-                  )
-                  .map((term, index) => (
-                    <li key={index}>{term}</li>
-                  ))}
-              </ul>
-  
-              <h3>Consequences</h3>
-              <ul>
-                {contract.consequences.map((c, idx) => (
-                  <li key={idx}>{c}</li>
-                ))}
-              </ul>
-  
-              <h3>Involved Parties</h3>
-              <ul>
-                {contract.parties.map((p, idx) => (
-                  <li key={idx}>{p}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-  
-          <div className={styles.summary}>
-            <h1>Summary</h1>
-            <p className={styles.summaryBox}>{contract.summary}</p>
-          </div>
+        <div className={styles.linkWrapper}>
+            <Link href="/">
+            <button className={styles.backButton}>
+            Back to Home
+            </button>
+            </Link>
         </div>
       </div>
     );
