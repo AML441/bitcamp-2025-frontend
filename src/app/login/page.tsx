@@ -7,7 +7,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import bitcampLogo from '../../imgs/bitcamp2025logo.png';
 import { useAuth } from '@/components/AuthContext'; // ✅ Step 1
-
+//comment here
 export default function AuthPage() {
   const router = useRouter();
   const { refreshAuth  } = useAuth(); // ✅ Step 2

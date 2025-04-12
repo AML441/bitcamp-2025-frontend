@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import styles from './page.module.css';
 import Link from 'next/link';
-
+//comment here.
 
 interface Contract {
   _id: string;
