@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import bitcampLogo from '../imgs/bitcamp2025logo.png';
+import bitcampLogo from '../imgs/Dino2wBackground-removebg-preview.png';
 import styles from "./page.module.css";
 import UserTable from "../components/UserTable";
 import { useState } from 'react'; 
@@ -19,8 +19,8 @@ export default function Home() {
           <Image
             src={bitcampLogo}
             alt="logo"
-            width={200}
-            height={200}
+            width={250}
+            height={250}
             className={styles.logo}
           />
           <h1 className={styles.titleText}>Welcome, NAME</h1>

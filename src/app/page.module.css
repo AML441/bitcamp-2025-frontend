@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px; /* space between image and text */
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 
@@ -99,6 +99,7 @@
 .modalButton {
   color: #f89880;
 }
+
 .submitButton {
   padding: 0.7rem;
   font-size: 1rem;
