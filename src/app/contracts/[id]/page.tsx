@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Cookies from 'js-cookie';
 import styles from './page.module.css';
 
 interface Contract {
@@ -26,10 +27,25 @@ export default function ContractDetailPage() {
 
   useEffect(() => {
     const fetchContract = async () => {
+      const token = Cookies.get('token');
+      if (!token) {
+        console.error('No auth token found');
+        return;
+      }
+
       try {
-        const res = await fetch(`http://localhost:8000/api/summary/${id}`);
+        const res = await fetch(`http://localhost:8000/api/summary/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!res.ok) {
+          console.error('Failed to fetch contract summary');
+          return;
+        }
+
         const data = await res.json();
-        console.log(data);
         setContract(data);
       } catch (error) {
         console.error('Error fetching contract:', error);
@@ -40,6 +56,7 @@ export default function ContractDetailPage() {
 
     if (id) fetchContract();
   }, [id]);
+
   if (loading) return <p>Loading...</p>;
   if (!contract) return <p>Contract not found</p>;
 

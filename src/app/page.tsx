@@ -6,25 +6,38 @@ import styles from "./page.module.css";
 import { useEffect, useState } from 'react';
 import UploadModal from '../components/UploadModal';
 import UserTable from "../components/UserTable";
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 export default function Home() {
+  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [contracts, setContracts] = useState([]);
 
-  // Fetch contracts once on mount + for refresh
-  const fetchContracts = async () => {
+  // 🔐 Redirect to login if no token
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if (!token) {
+      router.push('/login');
+    } else {
+      fetchContracts(token);
+    }
+  }, [router]);
+
+  // 🔄 Fetch contracts with token
+  const fetchContracts = async (token: string) => {
     try {
-      const res = await fetch("http://localhost:8000/api/contracts");
+      const res = await fetch("http://localhost:8000/api/contracts", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await res.json();
       setContracts(data);
     } catch (err) {
       console.error("Failed to fetch contracts:", err);
     }
   };
-
-  useEffect(() => {
-    fetchContracts();
-  }, []);
 
   return (
     <div className={styles.body}>
@@ -37,7 +50,7 @@ export default function Home() {
             height={250}
             className={styles.logo}
           />
-          <h1 className={styles.titleText}>Welcome, NAME</h1>
+          <h1 className={styles.titleText}>Welcome!</h1>
         </div>
 
         <div className={styles.buttonContainer}>
@@ -57,7 +70,10 @@ export default function Home() {
       <UploadModal
         showModal={showModal}
         setShowModal={setShowModal}
-        refreshContracts={fetchContracts} // 👈 refresh table after upload
+        refreshContracts={() => {
+          const token = Cookies.get('token');
+          if (token) fetchContracts(token);
+        }}
       />
     </div>
   );

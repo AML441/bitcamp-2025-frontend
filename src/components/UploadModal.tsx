@@ -1,21 +1,28 @@
 'use client';
 import React, { useState } from 'react';
 import styles from '../app/page.module.css';
+import Cookies from 'js-cookie';
 
 interface UploadModalProps {
   showModal: boolean;
   setShowModal: (value: boolean) => void;
-  refreshContracts: () => void; // 👈 added prop
+  refreshContracts: () => void;
 }
 
 export default function UploadModal({ showModal, setShowModal, refreshContracts }: UploadModalProps) {
   const [contractName, setContractName] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
-  
+
   const handleUpload = async () => {
     if (!file || !contractName.trim()) {
       alert("Please provide a contract name and file.");
+      return;
+    }
+
+    const token = Cookies.get('token');
+    if (!token) {
+      alert("You must be logged in to upload.");
       return;
     }
 
@@ -27,6 +34,9 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
       setUploading(true);
       const res = await fetch("http://localhost:8000/api/upload", {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         body: formData,
       });
 
@@ -36,7 +46,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
         setShowModal(false);
         setContractName('');
         setFile(null);
-        refreshContracts(); // 👈 trigger refresh!
+        refreshContracts();
       } else {
         console.error("Upload failed:", result);
         alert("Failed to upload: " + result.error);
