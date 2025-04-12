@@ -1,0 +1,13 @@
+.navbar {
+   background-color: #f89880;
+   display: flex;
+   justify-content: flex-end;
+}
+
+.navLink {
+    font-size: 2.1rem;
+    margin: .5rem 2rem .5rem 2rem; 
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
