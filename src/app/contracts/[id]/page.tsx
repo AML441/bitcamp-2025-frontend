@@ -124,7 +124,7 @@ export default function ContractDetailPage() {
             </div>
             </div>
         </div>
-        <h4 className={styles.termsTitle}>Don't know legalese? Translate here!</h4>
+        <h4 className={styles.termsTitle}>Don&apos;t know legalese? Translate here!</h4>
         <div className={styles.terms}> 
          <div className={styles.search}>
                 <div>
