@@ -10,12 +10,12 @@ import bitcampLogo from '../../imgs/bitcamp2025logo.png';
 export default function AuthPage() {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(true); // 👈 toggle between login/register
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleAuth = async () => {
-    if (!email || !password) {
+    if (!username || !password) {
       alert('Please fill in both fields');
       return;
     }
@@ -26,7 +26,7 @@ export default function AuthPage() {
       const res = await fetch(`http://localhost:8000/api/auth/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       const data = await res.json();
@@ -60,13 +60,13 @@ export default function AuthPage() {
       </div>
 
       <div className={styles.username}>
-        <h3 className={styles.fieldTitle}>Email:</h3>
+        <h3 className={styles.fieldTitle}>Username:</h3>
         <input
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className={styles.input}
-          placeholder="Enter email..."
+          placeholder="Enter username..."
         />
       </div>
 
