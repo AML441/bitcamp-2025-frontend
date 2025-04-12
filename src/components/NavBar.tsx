@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
         <Link href="/" className={styles.navLink}>
-            REDACTYL
+            FinePrintasaurus
         </Link>
         <Link href="/login" className={styles.navLink}>
             Login
