@@ -23,6 +23,7 @@ const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
         <tr>
+          <th style={{ border: "1px solid black", padding: "8px" }}>Delete</th>
           <th style={{ border: "1px solid black", padding: "8px" }}>Contract Name</th>
           <th style={{ border: "1px solid black", padding: "8px" }}>Start Date</th>
           <th style={{ border: "1px solid black", padding: "8px" }}>End Date</th>
@@ -32,6 +33,7 @@ const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
       <tbody>
         {contracts.map((contract) => (
           <tr key={contract._id}>
+            <td style={{ border: "1px solid black", padding: "8px", textAlign: "center" }}>❌ </td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.contractName}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.startDate}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.endDate}</td>

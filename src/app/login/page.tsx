@@ -16,12 +16,13 @@ export default function AuthPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleAuth = async () => {
     if (!username || !password) {
       alert('Please fill in both fields');
       return;
-    }
+    } 
 
     setLoading(true);
     try {
@@ -55,6 +56,7 @@ export default function AuthPage() {
   };
 
   return (
+    <div className={styles.formWrapper}>
     <div className={styles.body}>
       <div className={styles.titleWrapper}>
         <Image src={bitcampLogo} alt="logo" width={170} height={150} className={styles.logo} />
@@ -95,6 +97,7 @@ export default function AuthPage() {
           {isLogin ? 'Register' : 'Login'}
         </button>
       </p>
+    </div>
     </div>
   );
 }

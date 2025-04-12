@@ -41,7 +41,7 @@
   display: flex;
   justify-content: center;
   padding: 20px 40px;
-  border-radius: 25px;
+  border-radius: 15px;
   background-color:  #f89880;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -111,10 +111,11 @@
   font-weight: bold;
 }
 
-.modalButton {
-  cursor: pointer;
+.modalTitle {
   color: #f89880;
   transition: background-color 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .modalButton:hover {

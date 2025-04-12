@@ -65,7 +65,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
         <button className={styles.closeButton} onClick={() => setShowModal(false)}>❌</button>
-        <h2 className={styles.modalButton}>Upload</h2>
+        <h2 className={styles.modalTitle}>Upload</h2>
 
         <input
           className={styles.inputField}
@@ -79,6 +79,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
           className={styles.inputField}
           type="file"
           accept=".pdf"
+          border-radius="15px"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
         />
 

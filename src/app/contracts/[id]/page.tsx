@@ -98,14 +98,16 @@ export default function ContractDetailPage() {
                 </div> */}
     
                 <div className={styles.definitions}>
-                <h3>Involved Parties</h3>
+                <h3><u>Involved Parties</u></h3>
+                <br/>
                 <ul>
                     {contract.parties.map((p, idx) => (
                     <li key={idx}>{p}</li>
                     ))}
                 </ul>
                 <br/>
-                <h3>Important Clauses</h3>
+                <h3><u>Important Clauses</u></h3>
+                <br/>
                 <ul>
                     {contract.terms
                     // .filter((term) =>
@@ -116,7 +118,8 @@ export default function ContractDetailPage() {
                     ))}
                 </ul>
                 <br/>
-                <h3>Consequences</h3>
+                <h3><u>Consequences</u></h3>
+                <br/>
                 <ul>
                     {contract.consequences.map((c, idx) => (
                     <li key={idx}>{c}</li>

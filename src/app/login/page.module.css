@@ -1,35 +1,38 @@
 .body {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
     background-color: #ebe5dd;
     color: grey;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
+
 
 .titleWrapper {
     display: flex;
     flex-direction: row;
     margin-left: 3rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .loginTitle {
     margin: 3.5rem 0rem 1.5rem 0rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.username {
+.password, .username {
     margin-top: 1rem;
 }
 
-.password {
-    margin-top: 2rem;
-}
-
 .fieldTitle {
-    font-size: 3rem;
+    font-size: 1.8rem;
     margin: 1rem 4rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .input {
@@ -37,21 +40,45 @@
     color: grey;
     margin: 0rem 4rem;
     width: 80%;
-    padding: 1.2rem;
+    padding: .5rem;
     font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .submitButton {
     background-color: #f89880;
     width: 20%;
-    padding: 1.25rem;
+    padding: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 2.5rem 4rem;
+    margin: 2rem 4rem 2rem 4rem;
     border-radius: 25px;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .submitButton:hover {
+    filter: brightness(1.2); 
+}
+
+.toggleText {
+    margin: 0rem 0rem 2rem 4rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.toggleButton {
+    font-size: 1.25rem;
+    padding: .5rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    transition: background-color 0.3s ease;
+}
+  
+.toggleButton:hover {
     filter: brightness(1.2); 
 }
