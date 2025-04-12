@@ -34,7 +34,7 @@ export default function ContractDetailPage() {
   
       const fetchContract = async () => {
         try {
-          const summaryRes = await fetch(`http://localhost:8000/api/summary/${id}`, {
+          const summaryRes = await fetch(`https://backend-service-qb1k.onrender.com/api/summary/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
   
@@ -43,7 +43,7 @@ export default function ContractDetailPage() {
           setContract(summaryData);
   
           // Now fetch the PDF
-          const pdfRes = await fetch(`http://localhost:8000/api/pdf/${id}`, {
+          const pdfRes = await fetch(`https://backend-service-qb1k.onrender.com/api/pdf/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
   

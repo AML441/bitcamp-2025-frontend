@@ -32,7 +32,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
 
     try {
       setUploading(true);
-      const res = await fetch("http://localhost:8000/api/upload", {
+      const res = await fetch("https://backend-service-qb1k.onrender.com/api/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

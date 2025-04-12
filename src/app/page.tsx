@@ -35,7 +35,7 @@ export default function Home() {
   // 🔄 Fetch contracts with token
   const fetchContracts = async (token: string) => {
     try {
-      const res = await fetch("http://localhost:8000/api/contracts", {
+      const res = await fetch("https://backend-service-qb1k.onrender.com/api/contracts", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

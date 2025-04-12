@@ -26,7 +26,7 @@ export default function AuthPage() {
     setLoading(true);
     try {
       const endpoint = isLogin ? 'login' : 'register';
-      const res = await fetch(`http://localhost:8000/api/auth/${endpoint}`, {
+      const res = await fetch(`https://backend-service-qb1k.onrender.com/api/auth/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
