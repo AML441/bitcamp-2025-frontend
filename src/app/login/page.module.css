@@ -1,52 +1,57 @@
 .body {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
     background-color: #ebe5dd;
     color: grey;
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    width: 50%;
-    margin: 2rem 2.5rem 0rem 2.5rem;
-}
-
-.searchDef{
-    display: flex;
-    flex-direction: column;
-    border-style: solid;
-}
-
-.search{
+.titleWrapper {
     display: flex;
     flex-direction: row;
-    
+    margin-left: 3rem;
+    margin-top: 3rem;
 }
 
-.searchBar {
+.loginTitle {
+    margin: 3.5rem 0rem 1.5rem 0rem;
+    font-size: 2rem;
+}
+
+.username {
+    margin-top: 1rem;
+}
+
+.password {
+    margin-top: 2rem;
+}
+
+.fieldTitle {
+    font-size: 3rem;
+    margin: 1rem 4rem;
+}
+
+.input {
     background-color: white;
     color: grey;
-    width: 100%;
+    margin: 0rem 4rem;
+    width: 80%;
+    padding: 1.2rem;
+    font-size: 1.5rem;
 }
 
-.searchButton {
-    width: 10%;
+.submitButton {
+    background-color: #f89880;
+    width: 20%;
+    padding: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 2.5rem 4rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
 }
 
-.summary {
-    border-style: solid;
-}
-
-.summaryBox {
-    border-style: solid;
-}
-
-.pdf {
-    width: 50%;
-    height:100vh;
-    margin: 2rem 2.5rem 0rem 2.5rem;
-
+.submitButton:hover {
+    filter: brightness(1.2); 
 }

@@ -1,49 +1,56 @@
-"use client";
-import { useState } from "react";
-import styles from "./page.module.css";
+'use client';
+import Image from "next/image";
+import styles from './page.module.css';
+import bitcampLogo from '../../imgs/bitcamp2025logo.png';
+import { useState } from 'react';
 
-export default function LoginPage() {
-    const [searchTerm, setSearchTerm] = useState("");
-
+function LoginPage() { 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     return (
         <div className={styles.body}>
-            <div className={styles.pdf}>
-                <h1> PDF HERE</h1>
-
+            <div className={styles.titleWrapper}>
+            <Image
+                src={bitcampLogo}
+                alt="logo"
+                width={170}
+                height={150}
+                className={styles.logo}
+            />
+           <div className={styles.loginTitle}>
+                <h1>
+                    Sign In
+                </h1>
+            </div>
+        </div>
+            <div className={styles.username}>
+                <h3 className={styles.fieldTitle}>Username: </h3>
+            <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className={styles.input}
+                placeholder="Enter username..."
+            />
             </div>
 
-            <div className={styles.info}>
-                <div className={styles.searchDef}>
-                    <div className={styles.defTitle}>
-                        <h1>Definitions</h1>
-                    </div>
-                    <div className={styles.search}>
-                            <div className={styles.searchBar}>
-                            <input
-                                type="text"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className={styles.searchBar}
-                                placeholder="Type to search..."
-                            />
-                            </div>
-                            <button className={styles.searchButton}>
-                                Search
-                            </button>
-                        </div>
-                        <div className={styles.definitions}>
-                            <p>definitions go here.</p>
-                        </div>
-                </div>
-                <div className={styles.summary}>
-                <h1>Summary</h1>
-                    <p className={styles.summaryBox}>
-                        WHATEVER THE API PUTS GOES HERE
-                    </p>
-                </div>
-
+            <div className={styles.password}>
+                <h3 className={styles.fieldTitle}>Password: </h3>
+                <input
+                    type="text"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className={styles.input}
+                    placeholder="Enter password..."
+                />
             </div>
+
+            <button className={styles.submitButton}>
+                Submit
+            </button>
         </div>
 
     );
-  }
+};
+
+export default LoginPage;

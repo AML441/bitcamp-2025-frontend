@@ -41,6 +41,12 @@
   padding: 20px 40px;
   border-radius: 25px;
   background-color:  #f89880;
+  transition: background-color 0.3s ease;
+
+}
+
+.uploadButton:hover {
+  filter: brightness(1.2);
 }
 
 .table {
@@ -108,4 +114,9 @@
   color: white;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  filter: brightness(1.2);
 }

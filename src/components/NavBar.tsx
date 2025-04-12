@@ -8,7 +8,7 @@ const Navbar = () => {
             FinePrintasaurus
         </Link>
         <Link href="/login" className={styles.navLink}>
-            Login
+            Sign In
         </Link>
     </nav>
   );
