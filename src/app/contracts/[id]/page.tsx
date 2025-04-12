@@ -46,11 +46,11 @@ export default function ContractDetailPage() {
   return (
     <div className={styles.body}>
       <div className={styles.pdf}>
-        <embed
-          src={`http://localhost:8000${contract.filePath}`}
-          type="application/pdf"
-          width="100%"
-          height="600px"
+      <embed
+        src={`http://localhost:8000/api/pdf/${contract._id}`}
+        type="application/pdf"
+        width="100%"
+        height="600px"
         />
       </div>
 
