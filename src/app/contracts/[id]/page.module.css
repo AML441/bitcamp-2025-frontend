@@ -62,33 +62,79 @@
     font-weight: bold;
 }
 
-/*
+.terms {
+    border-style: solid;
+    margin: auto;
+    width: 80%;
+    max-height: 60%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.termsTitle {
+    margin: 5rem auto 1rem auto;
+    font-size: 1.5rem;
+    
+}
+
 .search{
     display: flex;
     flex-direction: row;
-    margin: 1rem 0rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    flex-wrap: nowrap; /* Keep in one line */
+    overflow: hidden;
+    margin: 1rem auto;
     
+}
+
+.termsText {
+    padding: 0rem 1.5rem 1.45rem 1.45rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    word-wrap: break-word;
+    flex-grow: 1; 
+    min-height: 0; 
 }
 
 .searchBar {
+    width: 20rem;
     background-color: white;
     color: grey;
-    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid #999;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    min-width: 0; 
 }
 
 .searchButton {
-    width: 10%;
     font-size: .5rem;
+    width: 10rem;
     cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.45rem ;
     
 }
-    */
+    
 
 .summary {
     display: flex;
     flex-direction: column;
     border-style: solid;
-    height: 25vh;
+    height: 32vh;
     padding: 1.45rem;
 }
 
@@ -127,7 +173,7 @@
     transition: background-color 0.3s ease;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .backButton:hover {

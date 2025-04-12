@@ -16,12 +16,15 @@ export default function AuthPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleAuth = async () => {
     if (!username || !password) {
-      alert('Please fill in both fields');
-      return;
-    } 
+        setError('Invalid fields');
+        return;
+      } else {
+        setError('');
+      }
 
     setLoading(true);
     try {
@@ -85,7 +88,7 @@ export default function AuthPage() {
           placeholder="Enter password..."
         />
       </div>
-
+      {error && <p className={styles.errorMessage}>{error}</p>}
       <button className={styles.submitButton} onClick={handleAuth} disabled={loading}>
         {loading ? (isLogin ? 'Logging in...' : 'Registering...') : 'Submit'}
       </button>

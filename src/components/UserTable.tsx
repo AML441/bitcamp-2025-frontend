@@ -33,7 +33,7 @@ const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
       <tbody>
         {contracts.map((contract) => (
           <tr key={contract._id}>
-            <td style={{ border: "1px solid black", padding: "8px", textAlign: "center" }}>❌ </td>
+            <td style={{ border: "1px solid black", padding: "8px", textAlign: "center" }}> <button>❌</button></td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.contractName}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.startDate}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.endDate}</td>

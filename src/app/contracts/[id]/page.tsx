@@ -83,20 +83,6 @@ export default function ContractDetailPage() {
                 <h1>Contract Details</h1>
                 <hr className="divider" />
                 </div>
-
-                {/* <div className={styles.search}>
-                <div className={styles.searchBar}>
-                    <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className={styles.searchBar}
-                    placeholder="Search terms..."
-                    />
-                </div>
-                <button className={styles.searchButton}>Search</button>
-                </div> */}
-    
                 <div className={styles.definitions}>
                 <h3><u>Involved Parties</u></h3>
                 <br/>
@@ -138,6 +124,31 @@ export default function ContractDetailPage() {
             </div>
             </div>
         </div>
+        <h4 className={styles.termsTitle}>Don't know legalese? Translate here!</h4>
+        <div className={styles.terms}> 
+         <div className={styles.search}>
+                <div>
+                    <input
+                    type="text"
+                    // value={searchTerm}
+                    // onChange={(e) => setSearchTerm(e.target.value)}
+                    className={styles.searchBar}
+                    placeholder="Search terms..."
+                    />
+                </div>
+                <button className={styles.searchButton}>Search</button>
+                </div>
+                <div className={styles.termsText}>
+                <p>Line 1</p>
+                <p>Line 2</p>
+                <p>Line 1</p>
+<p>Line 2</p>
+<p>Line 1</p>
+<p>Line 2</p>
+<p>Line 1</p>
+<p>Line 2</p>
+                </div>
+                </div>
         <div className={styles.linkWrapper}>
             <Link href="/">
             <button className={styles.backButton}>
