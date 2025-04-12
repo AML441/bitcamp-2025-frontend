@@ -5,13 +5,14 @@ import styles from '../app/page.module.css';
 interface UploadModalProps {
   showModal: boolean;
   setShowModal: (value: boolean) => void;
+  refreshContracts: () => void; // 👈 added prop
 }
 
-export default function UploadModal({ showModal, setShowModal }: UploadModalProps) {
+export default function UploadModal({ showModal, setShowModal, refreshContracts }: UploadModalProps) {
   const [contractName, setContractName] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
-
+  
   const handleUpload = async () => {
     if (!file || !contractName.trim()) {
       alert("Please provide a contract name and file.");
@@ -35,6 +36,7 @@ export default function UploadModal({ showModal, setShowModal }: UploadModalProp
         setShowModal(false);
         setContractName('');
         setFile(null);
+        refreshContracts(); // 👈 trigger refresh!
       } else {
         console.error("Upload failed:", result);
         alert("Failed to upload: " + result.error);
@@ -46,7 +48,7 @@ export default function UploadModal({ showModal, setShowModal }: UploadModalProp
       setUploading(false);
     }
   };
-  
+
   if (!showModal) return null;
 
   return (

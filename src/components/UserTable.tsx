@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 
 type Contract = {
@@ -10,24 +10,11 @@ type Contract = {
   endDate: string;
 };
 
-const UserTable: React.FC = () => {
-  const [contracts, setContracts] = useState<Contract[]>([]);
+interface UserTableProps {
+  contracts: Contract[];
+}
 
-  useEffect(() => {
-    const fetchContracts = async () => {
-      try {
-        const res = await fetch("http://localhost:8000/api/contracts");
-        const data = await res.json();
-        console.log("Fetched data:", data); 
-        setContracts(data); // Adjust depending on API response structure
-      } catch (error) {
-        console.error("Failed to fetch contracts:", error);
-      }
-    };
-
-    fetchContracts();
-  }, []);
-
+const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
   return (
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
@@ -46,7 +33,20 @@ const UserTable: React.FC = () => {
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.endDate}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>
               <Link href={`/contracts/${contract._id}`}>
-                <button style={{ display: "block", padding: "6px 12px", cursor: "pointer", backgroundColor: "#f89880", textAlign:"center", margin: "auto", fontSize: "1rem", width: "6rem", height: "3rem", borderRadius:"25px"}}>More Info</button>
+                <button style={{
+                  display: "block",
+                  padding: "6px 12px",
+                  cursor: "pointer",
+                  backgroundColor: "#f89880",
+                  textAlign: "center",
+                  margin: "auto",
+                  fontSize: "1rem",
+                  width: "6rem",
+                  height: "3rem",
+                  borderRadius: "25px"
+                }}>
+                  More Info
+                </button>
               </Link>
             </td>
           </tr>
