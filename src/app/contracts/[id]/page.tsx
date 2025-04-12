@@ -24,7 +24,7 @@ interface Contract {
 export default function ContractDetailPage() {
     const { id } = useParams() as { id: string };
     const [contract, setContract] = useState<Contract | null>(null);
-    const [searchTerm, setSearchTerm] = useState('');
+    // const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
     const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   
@@ -108,9 +108,9 @@ export default function ContractDetailPage() {
                 <h3>Important Clauses</h3>
                 <ul>
                     {contract.terms
-                    .filter((term) =>
-                        term.toLowerCase().includes(searchTerm.toLowerCase())
-                    )
+                    // .filter((term) =>
+                    //     term.toLowerCase().includes(searchTerm.toLowerCase())
+                    // )
                     .map((term, index) => (
                         <li key={index}>{term}</li>
                     ))}

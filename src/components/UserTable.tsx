@@ -16,8 +16,9 @@ interface UserTableProps {
 }
 
 const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
-  if (!Array.isArray(contracts)) return <p>No contracts found.</p>;
   const [hoveredButtonId, setHoveredButtonId] = useState<string | null>(null);
+  if (!Array.isArray(contracts)) return <p>No contracts found.</p>;
+  
   return (
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
