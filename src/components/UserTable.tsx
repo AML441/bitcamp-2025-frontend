@@ -18,8 +18,8 @@ const UserTable: React.FC = () => {
       try {
         const res = await fetch("http://localhost:8000/api/contracts");
         const data = await res.json();
-        console.log("Fetched data:", data); // For debugging
-        setContracts(data.contracts); // Adjust depending on API response structure
+        console.log("Fetched data:", data); 
+        setContracts(data); // Adjust depending on API response structure
       } catch (error) {
         console.error("Failed to fetch contracts:", error);
       }
