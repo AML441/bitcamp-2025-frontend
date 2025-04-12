@@ -39,7 +39,7 @@ const UserTable: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {Array.isArray(contracts) && contracts.map((contract) => (
+        {contracts.map((contract) => (
           <tr key={contract._id}>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.contractName}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.startDate}</td>
