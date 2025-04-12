@@ -1,0 +1,52 @@
+.body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #ebe5dd;
+    color: grey;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    width: 50%;
+    margin: 2rem 2.5rem 0rem 2.5rem;
+}
+
+.searchDef{
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.searchBar {
+    background-color: white;
+    color: grey;
+    width: 100%;
+}
+
+.searchButton {
+    width: 10%;
+}
+
+.summary {
+    border-style: solid;
+}
+
+.summaryBox {
+    border-style: solid;
+}
+
+.pdf {
+    width: 50%;
+    height:100vh;
+    margin: 2rem 2.5rem 0rem 2.5rem;
+
+}
