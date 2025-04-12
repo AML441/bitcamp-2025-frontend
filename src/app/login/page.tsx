@@ -6,10 +6,13 @@ import Cookies from 'js-cookie';
 import Image from 'next/image';
 import styles from './page.module.css';
 import bitcampLogo from '../../imgs/bitcamp2025logo.png';
+import { useAuth } from '@/components/AuthContext'; // ✅ Step 1
 
 export default function AuthPage() {
   const router = useRouter();
-  const [isLogin, setIsLogin] = useState(true); // 👈 toggle between login/register
+  const { refreshAuth  } = useAuth(); // ✅ Step 2
+
+  const [isLogin, setIsLogin] = useState(true);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -33,7 +36,8 @@ export default function AuthPage() {
 
       if (res.ok) {
         if (isLogin) {
-          Cookies.set('token', data.token, { expires: 1 }); // 1 day
+          Cookies.set('token', data.token, { expires: 1 });
+          refreshAuth();
           router.push('/');
         } else {
           alert('Registered! You can now log in.');
