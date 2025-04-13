@@ -32,7 +32,7 @@ const UserTable: React.FC<UserTableProps> = ({ contracts, refreshContracts }) =>
     if (!confirm("Are you sure you want to delete this contract?")) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/summary/${id}`, {
+      const res = await fetch(`https://backend-service-qb1k.onrender.com/api/summary/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
