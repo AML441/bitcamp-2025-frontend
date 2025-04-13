@@ -19,6 +19,11 @@ interface UserTableProps {
 const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
   const [hoveredButtonId, setHoveredButtonId] = useState<string | null>(null);
   if (!Array.isArray(contracts)) return <p>No contracts found.</p>;
+
+  const handleDelete = async (id: string) => {
+    const token = Cookies.get('token');
+    
+  }
   
   return (
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
@@ -34,7 +39,7 @@ const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
       <tbody>
         {contracts.map((contract) => (
           <tr key={contract._id}>
-            <td style={{ border: "1px solid black", padding: "8px", textAlign: "center" }}> <button>❌</button></td>
+            <td style={{ border: "1px solid black", padding: "8px", textAlign: "center" }}> <button onClick={() => handleDelete(contract._id)}>❌</button></td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.contractName}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.startDate}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.endDate}</td>
