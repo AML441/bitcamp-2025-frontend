@@ -71,7 +71,7 @@ const UserTable: React.FC<UserTableProps> = ({ contracts, refreshContracts }) =>
         {contracts.map((contract) => (
           <tr key={contract._id}>
             <td style={{ border: "1px solid black", padding: "8px", textAlign: "center" }}>
-              <button style={{backgroundColor: "white", height: "1rem", width: "1rem" }} onClick={() => handleDelete(contract._id)}>❌</button>
+              <button style={{backgroundColor: "white", fontSize: "3rem", outline: "none" }} onClick={() => handleDelete(contract._id)}>❌</button>
             </td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.contractName}</td>
             <td style={{ border: "1px solid black", padding: "8px" }}>{contract.startDate}</td>
