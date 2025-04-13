@@ -138,3 +138,11 @@
 .submitButton:hover {
   filter: brightness(1.2);
 }
+
+.errorMessage {
+  color: red;
+  margin-top: .5rem;
+  margin-left: .7rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}

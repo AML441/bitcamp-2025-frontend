@@ -13,18 +13,31 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
   const [contractName, setContractName] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleClose = () => {
+    setShowModal(false);
+    setContractName('');
+    setFile(null);
+    setError('');
+  };
 
   const handleUpload = async () => {
     if (!file || !contractName.trim()) {
-      alert("Please provide a contract name and file.");
-      return;
-    }
+        setError('Must submit contract name and .pdf file');
+        return;
+      } else {
+        setError('');
+      }
+
 
     const token = Cookies.get('token');
     if (!token) {
-      alert("You must be logged in to upload.");
-      return;
-    }
+     setError('You must be logged in to upload');
+        return;
+      } else {
+        setError('');
+      }
 
     const formData = new FormData();
     formData.append("file", file);
@@ -64,7 +77,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={() => setShowModal(false)}>❌</button>
+        <button className={styles.closeButton} onClick={handleClose}>❌</button>
         <h2 className={styles.modalTitle}>Upload</h2>
 
         <input
@@ -82,7 +95,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
           border-radius="15px"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
         />
-
+        {error && <p className={styles.errorMessage}>{error}</p>}
         <button className={styles.submitButton} onClick={handleUpload} disabled={uploading}>
           {uploading ? "Uploading..." : "Submit"}
         </button>
