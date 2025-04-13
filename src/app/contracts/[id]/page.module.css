@@ -7,7 +7,7 @@
 }
 
 .mainContent {
-    display: flex; /* Side by side layout */
+    display: flex; 
     flex-direction: row;
     height: 85vh;
 }
@@ -49,8 +49,8 @@
 }
 
 .definitions ul {
-    list-style-type: disc; /* Show regular bullet points */
-    padding-left: 1.5rem;  /* Adds space before bullets */
+    list-style-type: disc; 
+    padding-left: 1.5rem;  
     margin: 0 0 1rem 0;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
@@ -89,7 +89,7 @@
     gap: 0.5rem;
     padding: 0 1rem;
     box-sizing: border-box;
-    flex-wrap: nowrap; /* Keep in one line */
+    flex-wrap: nowrap; 
     overflow: hidden;
     margin: 1rem auto;
     

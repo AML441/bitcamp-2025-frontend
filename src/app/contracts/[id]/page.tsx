@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import styles from './page.module.css';
 import Link from 'next/link';
-//comment here.
 
 interface Contract {
   _id: string;
@@ -24,7 +23,6 @@ interface Contract {
 export default function ContractDetailPage() {
     const { id } = useParams() as { id: string };
     const [contract, setContract] = useState<Contract | null>(null);
-    // const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
     const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   
@@ -96,9 +94,6 @@ export default function ContractDetailPage() {
                 <br/>
                 <ul>
                     {contract.terms
-                    // .filter((term) =>
-                    //     term.toLowerCase().includes(searchTerm.toLowerCase())
-                    // )
                     .map((term, index) => (
                         <li key={index}>{term}</li>
                     ))}
@@ -125,29 +120,7 @@ export default function ContractDetailPage() {
             </div>
         </div>
         <h4 className={styles.termsTitle}>Don&apos;t know legalese? Translate here!</h4>
-        <div className={styles.terms}> 
-         <div className={styles.search}>
-                <div>
-                    <input
-                    type="text"
-                    // value={searchTerm}
-                    // onChange={(e) => setSearchTerm(e.target.value)}
-                    className={styles.searchBar}
-                    placeholder="Search terms..."
-                    />
-                </div>
-                <button className={styles.searchButton}>Search</button>
-                </div>
-                <div className={styles.termsText}>
-                <p>Line 1</p>
-                <p>Line 2</p>
-                <p>Line 1</p>
-<p>Line 2</p>
-<p>Line 1</p>
-<p>Line 2</p>
-<p>Line 1</p>
-<p>Line 2</p>
-                </div>
+        <div className={styles.terms}>
                 </div>
         <div className={styles.linkWrapper}>
             <Link href="/">

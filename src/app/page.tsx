@@ -90,7 +90,10 @@ export default function Home() {
         </div>
 
         <div className={styles.table}>
-          <UserTable contracts={contracts} />
+          <UserTable contracts={contracts} refreshContracts={() => {
+            const token = Cookies.get('token');
+            if (token) fetchContracts(token);
+          }}/>
         </div>
       </div>
 
