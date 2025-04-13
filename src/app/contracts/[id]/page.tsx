@@ -119,9 +119,6 @@ export default function ContractDetailPage() {
             </div>
             </div>
         </div>
-        <h4 className={styles.termsTitle}>Don&apos;t know legalese? Translate here!</h4>
-        <div className={styles.terms}>
-                </div>
         <div className={styles.linkWrapper}>
             <Link href="/">
             <button className={styles.backButton}>
