@@ -16,7 +16,7 @@ type Contract = {
   endDate: string;
   createdAt: string;
 };
-//comment here
+
 export default function Home() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +32,7 @@ export default function Home() {
     }
   }, [router]);
 
-  // 🔄 Fetch contracts with token
+
   const fetchContracts = async (token: string) => {
     try {
       const res = await fetch("https://backend-service-qb1k.onrender.com/api/contracts", {

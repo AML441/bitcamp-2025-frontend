@@ -13,6 +13,7 @@ type Contract = {
 
 interface UserTableProps {
   contracts: Contract[];
+  refreshContracts: () => void;
 }
 
 const UserTable: React.FC<UserTableProps> = ({ contracts }) => {
