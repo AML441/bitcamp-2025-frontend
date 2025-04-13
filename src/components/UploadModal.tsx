@@ -78,7 +78,7 @@ export default function UploadModal({ showModal, setShowModal, refreshContracts 
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
         <button className={styles.closeButton} onClick={handleClose}>❌</button>
-        <h2 className={styles.modalTitle}>Upload</h2>
+        <h2 className={styles.modalTitle}>Upload PDF</h2>
 
         <input
           className={styles.inputField}
